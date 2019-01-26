@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{491B9782-0B11-4A2E-86BB-8B101F0CEC44}</ProjectGuid>
+    <ProjectGuid>{EE1C7030-32D6-4A94-B504-4DECB640E968}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HyperAdmin.Client</RootNamespace>
-    <AssemblyName>HyperAdmin.Client.net</AssemblyName>
+    <RootNamespace>HyperAdmin.Server</RootNamespace>
+    <AssemblyName>HyperAdmin.Server.net</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CLIENT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SERVER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -25,13 +25,13 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;CLIENT</DefineConstants>
+    <DefineConstants>TRACE;SERVER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CitizenFX.Core">
-      <HintPath>..\..\References\client\CitizenFX.Core.dll</HintPath>
+      <HintPath>..\..\References\server\CitizenFX.Core.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -39,43 +39,31 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\HyperAdmin.Server\Shared\BanLookupModel.cs">
-      <Link>Shared\BanLookupModel.cs</Link>
+    <Compile Include="..\HyperAdmin.Client\Shared\Constants.cs">
+      <Link>Shared\Constants.cs</Link>
     </Compile>
-    <Compile Include="..\HyperAdmin.Server\Shared\Resource.cs">
-      <Link>Shared\Resource.cs</Link>
+    <Compile Include="..\HyperAdmin.Client\Shared\GlobalConfigModel.cs">
+      <Link>Shared\GlobalConfigModel.cs</Link>
     </Compile>
-    <Compile Include="..\HyperAdmin.Server\Shared\ResourceList.cs">
-      <Link>Shared\ResourceList.cs</Link>
+    <Compile Include="..\HyperAdmin.Client\Shared\StringExtents.cs">
+      <Link>Shared\StringExtents.cs</Link>
     </Compile>
-    <Compile Include="..\HyperAdmin.Server\Util\Log.cs">
-      <Link>Util\Log.cs</Link>
-    </Compile>
-    <Compile Include="Admin\AdminController.cs" />
-    <Compile Include="Admin\HudMenu.cs" />
-    <Compile Include="Admin\PlayerListMenu.cs" />
-    <Compile Include="Admin\ServerMenu.cs" />
-    <Compile Include="Admin\SpectateController.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="Helper\CachedValue.cs" />
-    <Compile Include="Helper\UiHelper.cs" />
-    <Compile Include="Menus\Menu.cs" />
-    <Compile Include="Menus\MenuController.cs" />
-    <Compile Include="Menus\MenuItem.cs" />
-    <Compile Include="Menus\MenuItemCheckbox.cs" />
-    <Compile Include="Menus\MenuItemSpinner.cs" />
-    <Compile Include="Menus\MenuItemSpinnerF.cs" />
-    <Compile Include="Menus\MenuItemSpinnerInt.cs" />
-    <Compile Include="Menus\MenuItemSpinnerList.cs" />
-    <Compile Include="Menus\MenuItemSubMenu.cs" />
-    <Compile Include="Shared\Constants.cs" />
-    <Compile Include="Shared\GlobalConfigModel.cs" />
-    <Compile Include="Shared\StringExtents.cs" />
+    <Compile Include="BanManager.cs" />
+    <Compile Include="HttpManager.cs" />
+    <Compile Include="Models\BanModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="PermissionsManager.cs" />
+    <Compile Include="PlayerController.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\MathExtents.cs" />
+    <Compile Include="ServerManager.cs" />
+    <Compile Include="Shared\BanLookupModel.cs" />
+    <Compile Include="Shared\Resource.cs" />
+    <Compile Include="Util\Log.cs" />
+    <Compile Include="Shared\ResourceList.cs" />
+    <Compile Include="VersionCheck.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

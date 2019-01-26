@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HyperAdmin.Client")]
+[assembly: AssemblyTitle("HyperAdmin.Server")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HyperAdmin.Client")]
+[assembly: AssemblyProduct("HyperAdmin.Server")]
 [assembly: AssemblyCopyright("Copyright © Mooshe.TV 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("491b9782-0b11-4a2e-86bb-8b101f0cec44")]
+[assembly: Guid("ee1c7030-32d6-4a94-b504-4decb640e968")]
 
 // Version information for an assembly consists of the following four values:
 //

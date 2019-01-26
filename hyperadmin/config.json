@@ -1,0 +1,9 @@
+{
+	"PrimaryIdentifier": "steam",
+	"DefaultBanReason": "No reason given.",
+	"DefaultKickReason": "No reason given.",
+	"CheckForUpdates": true,
+	"GlobalConfig": {
+		"MenuHotKey": 318
+	}
+}
