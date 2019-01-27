@@ -15,6 +15,18 @@ namespace HyperAdmin.Server
 
 		public PermissionsManager( Server server ) : base( server ) {
 			server.RegisterTickHandler( OnTick );
+			server.RegisterEventHandler( "HyperAdmin.Ready", new Action<Player>( OnPlayerStart ) );
+		}
+
+		private void OnPlayerStart( [FromSource] Player source ) {
+			try {
+				var handle = int.Parse( source.Handle );
+				_perms[handle] = Constants.Aces.Where( a => API.IsPlayerAceAllowed( source.Handle, a ) ).ToList();
+				source.TriggerEvent( "HyperAdmin.Permissions", handle );
+			}
+			catch( Exception ex ) {
+				Log.Error( ex );
+			}
 		}
 
 		private async Task OnTick() {
@@ -33,7 +45,8 @@ namespace HyperAdmin.Server
 						var hasAce = API.IsPlayerAceAllowed( player.Handle, ace );
 						if( hasPerm && !hasAce ) {
 							_perms[id].Remove( ace );
-						} else if( !hasPerm && hasAce ) {
+						}
+						else if( !hasPerm && hasAce ) {
 							_perms[id].Add( ace );
 						}
 
@@ -52,7 +65,8 @@ namespace HyperAdmin.Server
 				}
 
 				await BaseScript.Delay( 2000 );
-			} catch( Exception ex ) {
+			}
+			catch( Exception ex ) {
 				Log.Error( ex );
 			}
 		}
