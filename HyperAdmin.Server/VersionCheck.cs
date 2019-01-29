@@ -8,7 +8,7 @@ namespace HyperAdmin.Server
 {
 	public class VersionCheck : ServerAccessor
 	{
-		private const int Version = 101;
+		private const int Version = 102;
 
 		private bool _needsUpdate;
 

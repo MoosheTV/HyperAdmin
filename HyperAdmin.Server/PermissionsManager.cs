@@ -22,7 +22,10 @@ namespace HyperAdmin.Server
 			try {
 				var handle = int.Parse( source.Handle );
 				_perms[handle] = Constants.Aces.Where( a => API.IsPlayerAceAllowed( source.Handle, a ) ).ToList();
-				source.TriggerEvent( "HyperAdmin.Permissions", handle );
+				source.TriggerEvent( "HyperAdmin.Permissions", JsonConvert.SerializeObject( _perms[handle] ) );
+				if( _perms[handle].Any() ) {
+					Log.Verbose( $"Giving {source.Name} {_perms[handle].Count} Permission{(_perms[handle].Count == 1 ? "" : "s")}" );
+				}
 			}
 			catch( Exception ex ) {
 				Log.Error( ex );
